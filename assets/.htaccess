@@ -1,0 +1,24 @@
+# Don't list directory contents
+Options -Indexes
+
+# Disable script execution
+<Files ~ "\.(deb|phps|phtml|php)$">
+Order Deny,Allow
+Deny from all
+</Files>
+
+<Files ~ "^.*\.([Pp][Hh][Pp])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
+AddHandler cgi-script .php .php3 .php4 .phtml .pl .py .jsp .Asp .htm .shtml .sh .cgi .txt
+Options -ExecCGI
+
+
+<FilesMatch "\.(htpasswd|ini|phps|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
